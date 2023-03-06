@@ -37,7 +37,7 @@ const VideoSearching = () => {
       {/* Search results */}
       {searchResults ? (
         <>
-          <button style={{height:'40px'}} onClick={() => setSearchResults(null)}>Back</button>
+          {/* <button style={{height:'40px'}} onClick={() => setSearchResults(null)}>Back</button> */}
           {searchResults.length > 0 ? (
             <ol style={{listStyle:"none"}}>
               {searchResults.map((video, index) => (
