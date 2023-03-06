@@ -20,6 +20,7 @@ export function HomeThumbnail(props) {
                 <div style={{fontWeight:'400',fontSize:'18px'}}>
                     {props.views}
                 </div>
+                
             </div>
         </div>
     )
