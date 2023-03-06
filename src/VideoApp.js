@@ -17,5 +17,5 @@ export function VideoApp() {
             </div>
             
         </div>
-    )
+    );
 }

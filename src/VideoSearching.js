@@ -1,12 +1,14 @@
-import React, { useState } from "react";
-import { VideoApp } from "./VideoApp";
-import { videos } from "./VideoData";
-import { VideoThumbnail } from "./VideoThumbnail";
-
-
-
-
-function VideoSearch() {
+import React from 'react';
+import {useNavigate} from "react-router-dom"
+import { VideoApp } from './VideoApp';
+import { HomeThumbnail } from './HomeThumbnail';
+import { videos } from './VideoData';
+import { VideoThumbnail } from './VideoThumbnail';
+import { useState } from 'react';
+  
+const VideoSearching = () => {
+  const navigate = useNavigate();
+    
   const [searchResults, setSearchResults] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -30,7 +32,8 @@ function VideoSearch() {
     <div style={{backgroundColor:"black"}}>
       {/* Search input */}
       <input type="text" value={searchQuery} onChange={handleSearch} style={{width:'80%',height:'30px'}} />
-      
+      <button onClick={()=>navigate("/")}>Home</button>
+      <button onClick={()=>navigate("/videosearching")}>Video Searching</button>
       {/* Search results */}
       {searchResults ? (
         <>
@@ -53,6 +56,6 @@ function VideoSearch() {
       )}
     </div>
   );
-}
-
-export default VideoSearch;
+};
+  
+export default VideoSearching;
