@@ -24,7 +24,7 @@ export function SelectedVideo(props) {
             borderRadius: "25px",
             backgroundImage: `url(${props.link})`,
             backgroundSize: "cover",
-           // backgroundRepeat: "no - repeat",
+            backgroundRepeat: "no - repeat",
           }}
         >
         </div>

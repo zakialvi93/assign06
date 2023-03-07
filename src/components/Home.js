@@ -34,7 +34,7 @@ export function Home() {
         <input
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
-          style={{ width: "90%", height: "30px", borderRadius: "5px" }}
+          style={{ width: "85%", height: "30px", borderRadius: "5px" }}
         />
         <button
           onClick={checkFunction}

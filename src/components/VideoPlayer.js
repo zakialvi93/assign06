@@ -14,7 +14,7 @@ export function VideoPlayer() {
     const newArray = [];
 
     videos.map((x) => {
-      console.log("ID->>", x.Id, "ID2==>", id);
+      
       if (x.Id == id) {
         newArray.push(x);
       }
