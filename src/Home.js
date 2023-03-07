@@ -3,31 +3,60 @@ import {useNavigate} from "react-router-dom"
 import { VideoApp } from './VideoApp';
 import { HomeThumbnail } from './HomeThumbnail';
 import { videos } from './VideoData';
+import { VideoThumbnail } from './VideoThumbnail';
+import { useState } from 'react';
   
 const Home = () => {
-  const navigate = useNavigate();
+  
     
-  return (
-    //   <>
-    //     <h1>Welcome to Home Page</h1>
-    //     <button onClick={()=>navigate("/about")}>About</button>
-    //     <button onClick={()=>navigate("/videoapp")}>Video App</button>
-    //   </>
+  const [searchResults, setSearchResults] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
-    <div style={{
-        width: '100%', height: '100%', backgroundColor: 'black', display: 'flex',
-        flexDirection: 'column'
-    }}>
-        <button onClick={()=>navigate("/")}>Home</button>
-        <button onClick={()=>navigate("/videosearching")}>Video Searching</button>
-        <div style={{display:'flex', flexWrap: 'wrap' }}>
-        {videos.map((video, index) => {
-            return <HomeThumbnail title={video.title} channel={video.channel} views={video.views} key={index}/>
-        })}    
-        </div>
-        
+  // Function to handle search query
+  const handleSearch = (event) => {
+    const query = event.target.value.toLowerCase();
+
+    const filteredData = videos.filter((video) =>
+      video.title.toLowerCase().includes(query)
+    );
+
+    setSearchResults(filteredData);
+    setSearchQuery(query);
+  };
+
+
+  // const navigate = useNavigate();
+  
+
+  return (
+    <div style={{backgroundColor:"black"}}>
+      {/* Search input */}
+      <input type="text" value={searchQuery} onChange={handleSearch} style={{width:'80%',height:'30px'}} />
+      
+      {/* <button onClick={()=>navigate("/")}>Home</button>
+      <button onClick={()=>navigate("/videosearching")}>Video Searching</button> */}
+      {/* Search results */}
+      {searchResults ? (
+        <>
+          {/* <button style={{height:'40px'}} onClick={() => setSearchResults(null)}>Back</button> */}
+          {searchResults.length > 0 ? (
+            <ol style={{listStyle:"none"}}>
+              {searchResults.map((video, index) => (
+                <li key={index}> {<VideoThumbnail title={video.title} channel={video.channel} views={video.views}/>}</li>
+              ))}
+            </ol>
+          ) : (
+            <div style={{backgroundColor:"black", width:"100%", height:"100%"}}>
+              <br/>
+              <h1 style={{color:"white"}}>No Data Found</h1>
+            </div>
+          )}
+        </>
+      ) : (
+        <VideoApp/>
+      )}
     </div>
-  )
+  );
 };
   
 export default Home;
