@@ -85,6 +85,7 @@ export function Results() {
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
           style={{ width: "50%", height: "30px", borderRadius: "5px" }}
+          placeholder="Search..."
         />
         <button
           onClick={checkFunction}

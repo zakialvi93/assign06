@@ -35,6 +35,7 @@ export function Home() {
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
           style={{ width: "85%", height: "30px", borderRadius: "5px" }}
+          placeholder="Search..."
         />
         <button
           onClick={checkFunction}
@@ -44,7 +45,7 @@ export function Home() {
         </button>
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
+      <div style={{ display: "flex", flexDirection: "row", flexWrap:"wrap", width: "100%" }}>
         {videos &&
           videos.map((video, index) => {
             return (

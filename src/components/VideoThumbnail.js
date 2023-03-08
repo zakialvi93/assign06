@@ -8,20 +8,23 @@ export function VideoThumbnail(props) {
       <div
         onClick={() => navigate(`/Video/${props.Id}`)}
         style={{
-          width: "80%",
+          width: "300px",
+          height:"350px",
           backgroundColor: "#bdc2bc",
           boxShadow: "1px 1px 3px black",
           margin: "5px",
           display: "flex",
-          flexDirection: "row",
+          flexDirection: "column",
+          flexWrap:"wrap",
           borderRadius: "25px",
+          
         }}
       >
         <div
           style={{
-            margin: "10px",
-            width: "200px",
-            height: "125px",
+            //margin: "10px",
+            width: "100%",
+            height: "200px",
             borderRadius: "25px",
             backgroundImage: `url(${props.link})`,
             backgroundSize: "cover",
